@@ -10,4 +10,8 @@ ADT
 
 Algorithm
 --------
-- sorting
+- bubble sort
+- selection sort
+- insertion sort
+- qiuck sort
+
