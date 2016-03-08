@@ -11,6 +11,7 @@ public:
 		kDst,
 		kAddOpen,
 		kAddClose,
+		kPath,
 	};
 	static ANode* create();
 	virtual bool init() override;
@@ -31,14 +32,27 @@ struct AstarNode {
 
 	int getFValue() { return hValue + gValue; }
 	void calcValue(AstarNode* dst);
-	
+
 	AstarNode() :AstarNode(0, 0) {
 
 	}
 	AstarNode(int r, int c) :
-	row(r), col(c), parent(nullptr), hValue(0), gValue(0)
+		row(r), col(c), parent(nullptr), hValue(0), gValue(0)
 	{
 
+	}
+};
+
+struct Vec2Ex {
+	int x;
+	int y;
+	Vec2Ex() {
+		x = 0;
+		y = 0;
+	}
+	Vec2Ex(int _x, int _y) {
+		x = _x;
+		y = _y;
 	}
 };
 
@@ -47,11 +61,11 @@ const int maxcol = 23;
 
 class AstarLayer : public cocos2d::Layer {
 public:
-	
+
 	static AstarLayer* create();
 	static cocos2d::Scene* createScene();
 	virtual bool init() override;
-	
+
 	ANode* getNode(int row, int col) { return mNodes[row][col]; }
 private:
 	ANode* mNodes[maxrow][maxcol];
@@ -66,9 +80,10 @@ public:
 
 	bool find(AstarNode src, AstarNode dst, std::vector<AstarNode*> &list);
 
-	void init(AstarNode (&astarNodes)[maxrow][maxcol], AstarLayer* astarLayer);
+	void init(AstarNode(&astarNodes)[maxrow][maxcol], AstarLayer* astarLayer);
 
 private:
+	//void addOpenList(std::vector<AstarNode*>& q, )
 	bool isValid(int row, int col);
 	bool isUnwalkable(int row, int col);
 	AstarLayer* layer = nullptr;
