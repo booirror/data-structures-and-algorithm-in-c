@@ -160,7 +160,7 @@ bool AstarLayer::init()
 	auto listener = EventListenerTouchOneByOne::create();
 
 	listener->onTouchBegan = [this, astar](Touch* touch, Event* e)->bool {
-		std::vector<AstarNode*> list;
+		
 		std::thread t(std::bind(&AStar::find, astar, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3), src, dst, std::ref(list));
 		t.detach();
 		//AStar::getInstance()->find(src, dst, list);

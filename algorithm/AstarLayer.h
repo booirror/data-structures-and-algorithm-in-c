@@ -71,7 +71,7 @@ private:
 	ANode* mNodes[maxrow][maxcol];
 	AstarNode src;
 	AstarNode dst;
-
+	std::vector<AstarNode*> list;
 };
 
 class AStar {
