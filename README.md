@@ -15,6 +15,6 @@ Algorithm
 - selection sort
 - insertion sort
 - qiuck sort
-- A*
+- A*(C++)
 
 
