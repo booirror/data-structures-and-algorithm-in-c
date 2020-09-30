@@ -14,7 +14,9 @@ Algorithm
 - bubble sort
 - selection sort
 - insertion sort
-- qiuck sort
+- quick sort
+- merge sort
+- heap sort
 - A*(C++)
 
 
